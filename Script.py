@@ -294,7 +294,10 @@ Elsa
 
     CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group> <b>{file_name} </a>
 
-JOIN - https://t.me/sk_movies_Group </b>"""
+MOVIES GROUP LINK👇
+https://t.me/sk_movies_Group
+https://t.me/sk_movies_Group
+https://t.me/sk_movies_Group</b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
