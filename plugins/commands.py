@@ -235,18 +235,15 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
         xd = await client.send_cached_media(chat_id=message.from_user.id,
-        file_id=file_id,
-        caption=f_caption,
-        protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup(
-           [[
-             InlineKeyboardButton('channel', url="https://t.me/new_movies_group_2021")
-           ]]
-        )
-        )
-     if title and 'predvd' in title.lower():
-         await asyncio.sleep(600)
-         await xd.delete()
+                                   file_id=file_id,
+                                   caption=f_caption,
+                                   protect_content=True if protect == 'filep' else False,
+                                   reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('channel', url="https://t.me/sk_movies_Group)]])
+                                   )
+
+if title and 'predvd' in title.lower():
+    await asyncio.sleep(600)
+    await xd.delete()
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
