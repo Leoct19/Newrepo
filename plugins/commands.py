@@ -245,7 +245,7 @@ async def start(client, message):
     )
 
     if title and 'predvd' in title.lower():
-        await asyncio.sleep(600)
+        await asyncio.sleep(6)
         await xd.delete()
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
