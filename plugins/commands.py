@@ -226,27 +226,27 @@ async def start(client, message):
     title = files.file_name
     size=get_size(files.file_size)
     f_caption=files.caption
-if CUSTOM_FILE_CAPTION:
-    try:
-        f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
-    except Exception as e:
-        logger.exception(e)
-        f_caption = f_caption
+    if CUSTOM_FILE_CAPTION:
+        try:
+            f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+        except Exception as e:
+            logger.exception(e)
+            f_caption = f_caption
 
-if f_caption is None:
-    f_caption = files.file_name
+    if f_caption is None:
+        f_caption = files.file_name
 
-xd = await client.send_cached_media(
-    chat_id=message.from_user.id,
-    file_id=file_id,
-    caption=f_caption,
-    protect_content=True if protect == 'filep' else False,
-    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('channel', url="https://t.me/sk_movies_Group")]])
-)
+    xd = await client.send_cached_media(
+        chat_id=message.from_user.id,
+        file_id=file_id,
+        caption=f_caption,
+        protect_content=True if protect == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('channel', url="https://t.me/sk_movies_Group")]])
+    )
 
-if title and 'predvd' in title.lower():
-    await asyncio.sleep(600)
-    await xd.delete()
+    if title and 'predvd' in title.lower():
+        await asyncio.sleep(600)
+        await xd.delete()
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
