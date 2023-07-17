@@ -245,6 +245,8 @@ async def start(client, message):
     )
 
     if title and 'predvd' in title.lower():
+        f_caption +="\nThis file will  be deleted"
+        await xd.edit_caption(f_caption)
         await asyncio.sleep(6)
         await xd.delete()
 
