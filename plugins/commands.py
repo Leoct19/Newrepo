@@ -238,7 +238,7 @@ async def start(client, message):
                                    file_id=file_id,
                                    caption=f_caption,
                                    protect_content=True if protect == 'filep' else False,
-                                   reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('channel', url="https://t.me/sk_movies_Group)]])
+                                   reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('channel', url="https://t.me/sk_movies_Group")]])
                                    )
 
 if title and 'predvd' in title.lower():
