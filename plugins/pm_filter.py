@@ -465,7 +465,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
             else:
                 xd = await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if pre == 'filep' else False,
@@ -512,7 +512,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
          ]]
         await query.answer()
         xd = await client.send_cached_media(
-            chat_id=message.from_user.id,
+            chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if pre == 'filep' else False,
