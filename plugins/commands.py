@@ -243,17 +243,17 @@ async def start(client, message):
         protect_content=True if pre == 'filep' else False,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('ALL MOVIES LINK', url="https://t.me/new_movies_group_2021")]])
     )
-    
-if title and ['predvd', 'predvdrip'] in title.lower():
-    f_caption += "\nThis file will be deleted"
-    inline_keyboard = [
-            [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
-        ]
-    reply_markup = InlineKeyboardMarkup(inline_keyboard)
-    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-    await asyncio.sleep(6)
-    await message.delete()
-    await xd.delete()
+    if title and ['predvd', 'predvdrip'] in title.lower():
+        f_caption += "\nThis file will be deleted"
+        inline_keyboard = [
+                [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
+            ]
+        reply_markup = InlineKeyboardMarkup(inline_keyboard)
+        await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
+        await asyncio.sleep(6)
+        await message.delete()
+        await xd.delete()
+
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
