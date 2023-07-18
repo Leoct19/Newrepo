@@ -245,7 +245,7 @@ async def start(client, message):
     )
     
     if title and ['predvd', 'predvdrip'] in title.lower():
-    f_caption += "\nThis file will be deleted"
+    f_caption +="\nThis file will be deleted"
     inline_keyboard = [
             [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
         ]
