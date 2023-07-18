@@ -454,7 +454,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{files.file_name}"
         buttons = [[
-            InlineKeyboardButton('𖣘 𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣 𖣘', url='https://t.me/new_movies_group_2021')
+            InlineKeyboardButton('🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸', url='https://t.me/new_movies_group_2021')
          ]]
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -473,13 +473,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
 
                 if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-                    f_caption += "\nThis file will be deleted"
+                    f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
                     inline_keyboard = [
-                         [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
+                         [InlineKeyboardButton("🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺", url="https://t.me/sk_movies_Group")]
                         ]
                     reply_markup = InlineKeyboardMarkup(inline_keyboard)
                     await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-                    await asyncio.sleep(6)                   
+                    await asyncio.sleep(180)                   
                     await xd.delete()
                     
                 await query.answer('★彡Hey Bruh..彡★\n\n✯ മൂവിയുടെ ഫയൽ ‍‍ഞാന്‍ pm ഇൽ ഇട്ടിട്ടുണ്ട് പോയി നോക്ക്..🏃\n\n✯ 𝖨 𝗁𝖺𝗏𝖾 𝗉𝗎𝗍 𝗍𝗁𝖾 𝖿𝗂𝗅𝖾 𝗈𝖿 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝖺𝗌 𝖺 𝗉𝗆. 𝖦𝗈 𝖠𝗇𝖽 𝖲𝖾𝖾', show_alert=True)
@@ -512,7 +512,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = [[
-            InlineKeyboardButton('𖣘 𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣 𖣘', url='https://t.me/new_movies_group_2021')
+            InlineKeyboardButton('🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸', url='https://t.me/new_movies_group_2021')
          ]]
         await query.answer()
         xd = await client.send_cached_media(
@@ -524,13 +524,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
         if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-            f_caption += "\nThis file will be deleted"
+            f_caption += "\nT⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
             inline_keyboard = [
-                 [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
+                 [InlineKeyboardButton("🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺", url="https://t.me/sk_movies_Group")]
                 ]
             reply_markup = InlineKeyboardMarkup(inline_keyboard)
             await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-            await asyncio.sleep(6)                   
+            await asyncio.sleep(180)                   
             await xd.delete()
         
     elif query.data == "predvd":
