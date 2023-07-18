@@ -254,7 +254,7 @@ async def start(client, message):
         ]
         reply_markup = InlineKeyboardMarkup(inline_keyboard)
 
-    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
+        await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
