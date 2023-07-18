@@ -249,10 +249,10 @@ async def start(client, message):
         await asyncio.sleep(6)
         await message.delete()
         await xd.delete()
-    inline_keyboard = [
-            [InlineKeyboardButton("MOVIES GROUP", url="https://t.me/sk_movies_Group")]
-        ]
-        reply_markup = InlineKeyboardMarkup(inline_keyboard)
+        inline_keyboard = [
+    [InlineKeyboardButton("MOVIES GROUP", url="https://t.me/sk_movies_Group")]
+            ]
+            reply_markup = InlineKeyboardMarkup(inline_keyboard)
 
         await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
 
