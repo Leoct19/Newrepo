@@ -252,7 +252,7 @@ async def start(client, message):
     inline_keyboard = [
             [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
         ]
-        reply_markup = InlineKeyboardMarkup(inline_keyboard)
+    reply_markup = InlineKeyboardMarkup(inline_keyboard)
 
     await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
 
