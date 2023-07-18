@@ -250,7 +250,7 @@ async def start(client, message):
     await message.delete()
     await xd.delete()
     inline_keyboard = [
-            [InlineKeyboardButton("test",     url="https://t.me/sk_movies_Group")]
+            [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
         ]
         reply_markup = InlineKeyboardMarkup(inline_keyboard)
 
