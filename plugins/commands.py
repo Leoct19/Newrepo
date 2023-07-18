@@ -243,7 +243,7 @@ async def start(client, message):
         protect_content=True if pre == 'filep' else False,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('ALL MOVIES LINK', url="https://t.me/new_movies_group_2021")]])
     )
-    if title and ['predvd', 'predvdrip'] in title.lower():
+    if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
         f_caption += "\nThis file will be deleted"
         inline_keyboard = [
                 [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
