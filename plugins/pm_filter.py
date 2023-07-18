@@ -472,7 +472,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if ident == "checksubp" else False,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('ALL MOVIES LINK', url="https://t.me/new_movies_group_2021")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
                 )
 
                 if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
@@ -523,7 +523,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == "checksubp" else False,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('ALL MOVIES LINK', url="https://t.me/new_movies_group_2021")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
         )
 
         if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
