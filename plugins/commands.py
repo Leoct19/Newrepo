@@ -246,15 +246,14 @@ async def start(client, message):
     
     if title and ['predvd', 'predvdrip'] in title.lower():
     f_caption += "\nThis file will be deleted"
+    inline_keyboard = [
+            [InlineKeyboardButton("test", url="link")]
+        ]
+    reply_markup = InlineKeyboardMarkup(inline_keyboard)
+    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
     await asyncio.sleep(6)
     await message.delete()
     await xd.delete()
-    inline_keyboard = [
-            [InlineKeyboardButton("test", url="https://t.me/sk_movies_Group")]
-        ]
-    reply_markup = InlineKeyboardMarkup(inline_keyboard)
-
-    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
