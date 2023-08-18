@@ -292,12 +292,13 @@ Elsa
 {message.chat.title}</b>
 """
 
-    CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group> <b>{file_name} </a>
+    CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group><b>{file_name} 
 
 MOVIES GROUP LINK👇
 https://t.me/sk_movies_Group
 https://t.me/sk_movies_Group
-https://t.me/sk_movies_Group</b>"""
+https://t.me/sk_movies_Group</b></a>
+"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
