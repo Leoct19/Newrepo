@@ -58,21 +58,21 @@ async def start(client, message):
             return
         btn = [[ 
                 InlineKeyboardButton(
-                    "🎗 Request To Join Channel 🎗", url=invite_link)
+                    "🎗 ʀᴇQᴜᴇꜱᴛ ᴛᴏ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 🎗", url=invite_link)
         ]]
         if message.command[1] != "subscribe":
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-                btn.append([InlineKeyboardButton("㋡ Wʜʏ I'ᴍ Jᴏɪɴɪɴɢ", callback_data="whyjoin")])
+                btn.append([InlineKeyboardButton("🪄 ᴛʀʏ ᴀɢᴀɪɴ 🪄", callback_data=f"{pre}#{file_id}")])
+                btn.append([InlineKeyboardButton("📕 ᴍᴜꜱᴛ ʀᴇᴀᴅ 📕", callback_data="whyjoin")])
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-                btn.append([InlineKeyboardButton("㋡ Wʜʏ I'ᴍ Jᴏɪɴɪɴɢ", callback_data="whyjoin")])
+                btn.append([InlineKeyboardButton("🪄 ᴛʀʏ ᴀɢᴀɪɴ 🪄", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                btn.append([InlineKeyboardButton("📕 ᴍᴜꜱᴛ ʀᴇᴀᴅ 📕", callback_data="whyjoin")])
         await client.send_photo(
             chat_id=message.from_user.id,
             photo="https://graph.org/file/7a0ed55a6727cc38da561.jpg",
-            caption="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന 📢 Request To Join Channel 📢 എന്നത് ക്ലിക്ക് ചെയ്ത് Request to Join channel എന്നത് ക്ലിക്ക് ചെയ്ത് 🔄 Try Again കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking 📢 Request To Join Channel 📢 Button or the Link shown Below. After That, Click 🔄 Try Again 🔄 Button. I'll Send You That Movie File📂**",
+            caption="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന <i><u>Request To Join Channel</i></u> എന്നത് ക്ലിക്ക് ചെയ്ത് <i><u>Try Again</i></u>കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking <i><u>Request To Join Channel</i></u> Button or the Link shown Below. After That, Click <i><u>Try Again</i></u> Button. I'll Send You That Movie File📂\n\n⚠️If Any Error Contact @PowerOfTG**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -85,7 +85,7 @@ async def start(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -128,7 +128,17 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                          InlineKeyboardButton('🪔𝐔𝐩𝐝𝐚𝐭𝐞𝐬', url=f'https://t.me/movies_club_2019'),
+                          InlineKeyboardButton('🏦𝐌𝐚𝐢𝐧 𝐇𝐮𝐛', url='https://t.me/UrvashiTheatersSub')
+                       ],[
+                          InlineKeyboardButton("🧞‍♀️𝐑𝐞𝐪𝐮𝐞𝐬𝐭🧞‍♀️", url="https://t.me/tomman_requests")
+                         ]
+                        ]
                     )
+                )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -137,7 +147,17 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                          InlineKeyboardButton('🪔𝐔𝐩𝐝𝐚𝐭𝐞𝐬', url=f'https://t.me/movies_club_2019'),
+                          InlineKeyboardButton('🏦𝐌𝐚𝐢𝐧 𝐇𝐮𝐛', url='https://t.me/UrvashiTheatersSub')
+                       ],[
+                          InlineKeyboardButton("🧞‍♀️𝐑𝐞𝐪𝐮𝐞𝐬𝐭🧞‍♀️", url="https://t.me/tomman_requests")
+                         ]
+                        ]
                     )
+                )
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -233,20 +253,8 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/UrvashiTheatersSub")]])
-    )
-    if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-        f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-        inline_keyboard = [
-                [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/UrvashiTheatersSub")]
-            ]
-        reply_markup = InlineKeyboardMarkup(inline_keyboard)
-        await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-        await asyncio.sleep(180)
-        await message.delete()
-        await xd.delete()
-
-
+        )
+                    
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
