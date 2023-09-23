@@ -289,7 +289,8 @@ Elsa
 
     IMDB_TEMPLATE_TXT = """
     ☞{message.from_user.mention}
-<b><i>🔖𝙼𝙾𝚅𝙸𝙴 : {search}/n</b></i>
+    
+<b><i>🔖𝙼𝙾𝚅𝙸𝙴 : {search}</b></i>
 <b><i>🌿𝚈𝙴𝙰𝚁 : {year}</b></i>
 <b><i>🧞‍♀️𝚁𝙰𝚃𝙸𝙽𝙶𝚂 : {rating}</b></i>
 
