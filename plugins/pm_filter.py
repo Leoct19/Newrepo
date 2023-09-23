@@ -167,13 +167,6 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        btn.insert(0, 
-        [
-            InlineKeyboardButton(f'ɪɴꜰᴏ', 'movieinfo'),
-            InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'movss'),
-            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
-        ]
-    )
 
     if 0 < offset <= 10:
         off_set = 0
@@ -649,7 +642,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
        keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
  
-       await query.message.edit_text(text=f"<b>Hey 👋 {query.from_user.mention}/n/nClick the below buttons for more Information 🏌️</b>", reply_markup=keyboard)
+       await query.message.edit_text(text=f"<b>Hey 👋 {query.from_user.mention}\n\nClick the below buttons for more Information 🏌️</b>", reply_markup=keyboard)
         
     elif query.data == "minfo":
        await query.answer(
@@ -1258,13 +1251,6 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn.insert(0, 
-        [
-            InlineKeyboardButton(f'ɪɴꜰᴏ', 'movieinfo'),
-            InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'movss'),
-            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
-        ]
-    )
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
