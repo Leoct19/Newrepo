@@ -288,16 +288,12 @@ Elsa
 """
 
     IMDB_TEMPLATE_TXT = """
-<b>🔖 ᴛɪᴛʟᴇ :<a href={url}>{title}</a>
+    ☞{message.from_user.mention}
+<b><i>🔖𝙼𝙾𝚅𝙸𝙴 : {search}/n</b></i>
+<b><i>🌿𝚈𝙴𝙰𝚁 : {year}</b></i>
+<b><i>🧞‍♀️𝚁𝙰𝚃𝙸𝙽𝙶𝚂 : {rating}</b></i>
 
-🎭 ɢᴇɴʀᴇs : {genres}
-🎖 ʀᴀᴛɪɴɢ : <a href={url}/ratings>{rating}</a> / 10 (ʙᴀsᴇᴅ ᴏɴ {votes} ᴜsᴇʀ ʀᴀᴛɪɴɢ.)
-
-📆 ʏᴇᴀʀ : {release_date}
-🗞 ʟᴀɴɢᴜᴀɢᴇ : {languages}
-🌎 ᴄᴏᴜɴᴛʀʏ : {countries}
-
-{message.chat.title}</b>
+<b><i>𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 : {message.chat.title}</b></i>
 """
 
     CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group><b>{file_name} 
