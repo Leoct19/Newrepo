@@ -72,7 +72,7 @@ async def start(client, message):
         await client.send_photo(
             chat_id=message.from_user.id,
             photo="https://graph.org/file/7a0ed55a6727cc38da561.jpg",
-            caption="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന <i><u>Request To Join Channel</i></u> എന്നത് ക്ലിക്ക് ചെയ്ത് <i><u>Try Again</i></u>കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking <i><u>Request To Join Channel</i></u> Button or the Link shown Below. After That, Click <i><u>Try Again</i></u> Button. I'll Send You That Movie File📂\n\n⚠️If Any Error Contact @PowerOfTG**",
+            caption="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന **--Request To Join Channel**-- എന്നത് ക്ലിക്ക് ചെയ്ത് **--Try Again**--കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking **--Request To Join Channel**-- Button or the Link shown Below. After That, Click **--Try Again**-- Button. I'll Send You That Movie File📂\n\n⚠️If Any Error Contact @PowerOfTG**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -230,6 +230,13 @@ async def start(client, message):
                 except:
                     return
             await msg.edit_caption(f_caption)
+            btn = [[
+                InlineKeyboardButton("☢️ Get File Again ☢️", callback_data=f'delfile#{file_id}')
+            ]]
+            k = await msg.reply("<b><u>❗️❗️❗️𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>5 Minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>\n\n വേഗം എവിടേക്കെങ്കിലും ഫോർവേഡ് ചെയ്തു സേവ് ആക്കിക്കോ അല്ലേൽ ഡിലീറ്റ് ആാവും👍",quote=True)
+            await asyncio.sleep(300)
+            await msg.delete()
+            await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
             return
         except:
             pass
@@ -248,13 +255,31 @@ async def start(client, message):
     if f_caption is None:
         f_caption = files.file_name
 
-    xd = await client.send_cached_media(
+    msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+             [
+              InlineKeyboardButton('🪔𝐔𝐩𝐝𝐚𝐭𝐞𝐬', url=f'https://t.me/movies_club_2019'),
+              InlineKeyboardButton('🏦𝐌𝐚𝐢𝐧 𝐇𝐮𝐛', url='https://t.me/UrvashiTheatersSub')
+           ],[
+              InlineKeyboardButton("🧞‍♀️𝐑𝐞𝐪𝐮𝐞𝐬𝐭🧞‍♀️", url="https://t.me/tomman_requests")
+             ]
+            ]
         )
-                    
+    )
+    btn = [[
+        InlineKeyboardButton("☢️ Get File Again ☢️", callback_data=f'delfile#{file_id}')
+    ]]
+    k = await msg.reply("<b><u>❗️❗️❗️𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>5 Minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>\n\n വേഗം എവിടേക്കെങ്കിലും ഫോർവേഡ് ചെയ്തു സേവ് ആക്കിക്കോ അല്ലേൽ ഡിലീറ്റ് ആാവും👍",quote=True)
+    await asyncio.sleep(43200)
+    await msg.delete()
+    await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
+    return   
+
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
