@@ -149,7 +149,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"🍂[{get_size(file.file_size)}]🌿{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -177,7 +177,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("💫 ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"📖𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖",
+             InlineKeyboardButton(f"📖ᴘᴀɢᴇ📖{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖",
                                   callback_data="pages")]
         )
     elif off_set is None:
@@ -188,7 +188,7 @@ async def next_page(bot, query):
         btn.append(
             [
                 InlineKeyboardButton("💫ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"📖𝗉𝖺𝗀𝖾{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖", callback_data="pages"),
+                InlineKeyboardButton(f"📖ᴘᴀɢᴇ📖{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖", callback_data="pages"),
                 InlineKeyboardButton("ɴᴇxᴛ💫", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
@@ -1208,7 +1208,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"●[{get_size(file.file_size)}]☞{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1233,12 +1233,12 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"𝗉𝖺𝗀𝖾 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"📖ᴘᴀɢᴇ📖 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+             InlineKeyboardButton(text="ɴᴇxᴛ💫", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="Nᴏ Mᴏʀᴇ Pᴀɢᴇ", callback_data="pages")]
+            [InlineKeyboardButton(text="🔒Nᴏ Mᴏʀᴇ Pᴀɢᴇ🔒", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -1275,7 +1275,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"{message.from_user.mention} 😍\n\n<b><i>🔖Query : {search}</b></i>"
+        cap = f"☞{message.from_user.mention}\n\n<b><i>🔖𝙼𝙾𝚅𝙸𝙴 : {search}</b></i>"
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:
@@ -1284,7 +1284,7 @@ async def auto_filter(client, msg, spoll=False):
                 hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await hehe.delete()
                         await message.delete()
                 except KeyError:
@@ -1292,7 +1292,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await hehe.delete()
                         await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
@@ -1304,7 +1304,7 @@ async def auto_filter(client, msg, spoll=False):
                 hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await hmm.delete()
                         await message.delete()
                 except KeyError:
@@ -1312,7 +1312,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await hmm.delete()
                         await message.delete()
         except Exception as e:
@@ -1323,7 +1323,7 @@ async def auto_filter(client, msg, spoll=False):
                 fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await fek.delete()
                         await message.delete()
                 except KeyError:
@@ -1331,7 +1331,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(300)
                         await fek.delete()
                         await message.delete()
     else:
@@ -1341,7 +1341,7 @@ async def auto_filter(client, msg, spoll=False):
             fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
+                    await asyncio.sleep(300)
                     await fuk.delete()
                     await message.delete()
             except KeyError:
@@ -1349,7 +1349,7 @@ async def auto_filter(client, msg, spoll=False):
                 await save_group_settings(grpid, 'auto_delete', True)
                 settings = await get_settings(message.chat.id)
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
+                    await asyncio.sleep(300)
                     await fuk.delete()
                     await message.delete()
     
