@@ -149,7 +149,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"🪫[{get_size(file.file_size)}]{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -583,11 +583,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("Request", url="https://t.me/tomman_requests"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
-       await query.message.edit_text(text=f"Hey {query.from_user.mention} 👋<b><u> If you want to get the movie, follow the below…</u>👇\n\n<i>🔹Ask for correct spelling. (English)\n\n🔸Ask for movies in English only.\n\n🔹Don't ask for unreleased movies.\n\n🔸 [Movie Name, Year, Language] Ask this way.\n\n🔹 Don't Use symbols while requesting movies. (+:;'!-`|...etc)\n\n🌏 Use the Google Button below for your movie details</b></i>", reply_markup=InlineKeyboardMarkup(btn))    
+       await query.message.edit_text(text=f"Hey {query.from_user.mention} 👋<b><u> If you want to get the movie, follow the below…</u>👇\n\n<i>🔹Ask for correct spelling. (English)\n\n🔸Ask for movies in English only.\n\n🔹Don't ask for unreleased movies.\n\n🔸 [Movie Name, Year, Language] Ask this way.\n\n🔹 Don't Use symbols while requesting movies. (+:;'!-`|...etc)\n\n🌏 Use the Request Button below for your movie details</b></i>", reply_markup=InlineKeyboardMarkup(btn))    
 
     elif query.data == "mal":
        xd = query.message.reply_to_message.text.replace(" ", "+")
@@ -597,7 +597,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
-       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ, താഴെ പറയുന്ന കാര്യങ്ങളിൽ ശ്രദ്ധിക്കുക...👇</u><I>\n\n🔹കറക്റ്റ് സ്പെല്ലിംഗിൽ ചോദിക്കുക. (ഇംഗ്ലീഷിൽ മാത്രം)\n\n🔸സിനിമകൾ ഇംഗ്ലീഷിൽ Type ചെയ്ത് മാത്രം ചോദിക്കുക.\n\n🔹റിലീസ് ആകാത്ത സിനിമകൾ ചോദിക്കരുത്.\n\n🔸[സിനിമയുടെ പേര്, വർഷം, ഭാഷ] ഈ രീതിയിൽ ചോദിക്കുക.\n\n🔹സിനിമ Request ചെയ്യുമ്പോൾ Symbols ഒഴിവാക്കുക. [+:;'*!-`&.. etc]\n\n🌏 നിങ്ങളുടെ സിനിമ വിശദാംശങ്ങൾക്കായി ചുവടെയുള്ള ഗൂഗിൾ ബട്ടൺ ഉപയോഗിക്കുക</b></i>", reply_markup=InlineKeyboardMarkup(btn))
+       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ, താഴെ പറയുന്ന കാര്യങ്ങളിൽ ശ്രദ്ധിക്കുക...👇</u><I>\n\n🔹കറക്റ്റ് സ്പെല്ലിംഗിൽ ചോദിക്കുക. (ഇംഗ്ലീഷിൽ മാത്രം)\n\n🔸സിനിമകൾ ഇംഗ്ലീഷിൽ Type ചെയ്ത് മാത്രം ചോദിക്കുക.\n\n🔹റിലീസ് ആകാത്ത സിനിമകൾ ചോദിക്കരുത്.\n\n🔸[സിനിമയുടെ പേര്, വർഷം, ഭാഷ] ഈ രീതിയിൽ ചോദിക്കുക.\n\n🔹സിനിമ Request ചെയ്യുമ്പോൾ Symbols ഒഴിവാക്കുക. [+:;'*!-`&.. etc]\n\n🌏 നിങ്ങളുടെ സിനിമ വിശദാംശങ്ങൾക്കായി ചുവടെയുള്ള റിക്വസ്റ്റ്ട്ട ബട്ടൺ ഉപയോഗിക്കുക</b></i>", reply_markup=InlineKeyboardMarkup(btn))
 
     elif query.data == "tam":
        xd = query.message.reply_to_message.text.replace(" ", "+")
@@ -617,7 +617,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
-       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>రు సినిమాని పొందాలనుకుంటే, క్రింద పేర్కొన్న విషయాలను అనుసరించండి...👇</u><i>\n\n🔹సరైన స్పెల్లింగ్ కోసం అడగండి. (ఇంగ్లీష్‌లో మాత్రమే)\n\n🔸సినిమాలను ఆంగ్లంలో టైప్ చేసి మాత్రమే అడగండి.\n\n🔹విడుదల కాని సినిమాలను అడగవద్దు.\n\n🔸 [సినిమా పేరు, సంవత్సరం, భాష] ఈ విధంగా అడగండి.\n\n🔹సినిమాలను అభ్యర్థించేటప్పుడు చిహ్నాలను నివారించండి. [+:;'*!-&.. etc]\n\n🌎 మీ సినిమా వివరాల కోసం దిగువన ఉన్న Google బటన్‌ని ఉపయోగించండి</b></i>", reply_markup=InlineKeyboardMarkup(btn))
+       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>రు సినిమాని పొందాలనుకుంటే, క్రింద పేర్కొన్న విషయాలను అనుసరించండి...👇</u><i>\n\n🔹సరైన స్పెల్లింగ్ కోసం అడగండి. (ఇంగ్లీష్‌లో మాత్రమే)\n\n🔸సినిమాలను ఆంగ్లంలో టైప్ చేసి మాత్రమే అడగండి.\n\n🔹విడుదల కాని సినిమాలను అడగవద్దు.\n\n🔸 [సినిమా పేరు, సంవత్సరం, భాష] ఈ విధంగా అడగండి.\n\n🔹సినిమాలను అభ్యర్థించేటప్పుడు చిహ్నాలను నివారించండి. [+:;'*!-&.. etc]\n\n🌎 మీ సినిమా వివరాల కోసం దిగువన ఉన్న Request బటన్‌ని ఉపయోగించండి</b></i>", reply_markup=InlineKeyboardMarkup(btn))
 
     elif query.data == "hin":
        xd = query.message.reply_to_message.text.replace(" ", "+")
@@ -627,10 +627,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
-       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>यदि आप मूवी प्राप्त करना चाहते हैं, तो नीचे दिए गए चरणों का पालन करें...</u><i>👇\n\n🔹सही वर्तनी के लिए पूछें। (केवल अंग्रेज़ी में)\n\n🔸फिल्में अंग्रेजी में टाइप करें और केवल पूछें।\n\n🔹अप्रकाशित फिल्मों के लिए न पूछें।\n\n🔸 [मूवी का नाम, वर्ष, भाषा] इस तरह पूछें।\n\n🔹फिल्मों का अनुरोध करते समय प्रतीकों से बचें। [+:;'*!-&.. आदि]\n\n🌎अपनी मूवी के विवरण के लिए नीचे दिए गए Google बटन का उपयोग करें</b></i>", reply_markup=InlineKeyboardMarkup(btn))
+       await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>यदि आप मूवी प्राप्त करना चाहते हैं, तो नीचे दिए गए चरणों का पालन करें...</u><i>👇\n\n🔹सही वर्तनी के लिए पूछें। (केवल अंग्रेज़ी में)\n\n🔸फिल्में अंग्रेजी में टाइप करें और केवल पूछें।\n\n🔹अप्रकाशित फिल्मों के लिए न पूछें।\n\n🔸 [मूवी का नाम, वर्ष, भाषा] इस तरह पूछें।\n\n🔹फिल्मों का अनुरोध करते समय प्रतीकों से बचें। [+:;'*!-&.. आदि]\n\n🌎अपनी मूवी के विवरण के लिए नीचे दिए गए Request बटन का उपयोग करें</b></i>", reply_markup=InlineKeyboardMarkup(btn))
     
     elif query.data == "nlang":
-       btn_duction = InlineKeyboardButton("✯ 𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝 ✯", callback_data="minfo")
+       btn_duction = InlineKeyboardButton("✯Request Here✯", url=f"https://t.me/tomman_requests")
 
        intro_row = [btn_duction]
        btn_eng = InlineKeyboardButton("ᴇɴɢ", callback_data="eng")
@@ -1403,7 +1403,7 @@ async def advantage_spell_chok(client, msg):
     movielist = []
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")
-        btn_duction = InlineKeyboardButton(" ✰ 𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝 ✰ ", callback_data="minfo")
+        btn_duction = InlineKeyboardButton(" ✰Request Here✰ ", url="https://t.me/UrvashiTheatersSub")
 
         intro_row = [btn_duction]
         btn_eng = InlineKeyboardButton("ᴇɴɢ", callback_data="eng")
@@ -1420,7 +1420,7 @@ async def advantage_spell_chok(client, msg):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
         k = await msg.reply_text(text=f"<b>Hey 👋 {msg.from_user.mention} ⌛️Something is wrong❕\n\nI couldn't find anything related to your request 🫧\n\nYou can find the way to get the movie from the buttons below🍃\n\n||Click the below buttons for more details</b>🧜||", reply_markup=keyboard)
-        await asyncio.sleep(120)
+        await asyncio.sleep(60)
         await k.delete()
         await msg.delete()
         return
@@ -1441,7 +1441,7 @@ async def advantage_spell_chok(client, msg):
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
     k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
                       reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(60)
+    await asyncio.sleep(30)
     await k.delete()
     await msg.delete()
 
