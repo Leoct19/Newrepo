@@ -126,7 +126,7 @@ async def pm_text(bot, message):
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer(f"★彡Hey {query.from_user.first_name}彡★ ഇത് നിന്റെ അല്ല ....😎", show_alert=True)
+        return await query.answer(f"Hey {query.from_user.first_name}ഇത് നിന്റെ അല്ല ....😎", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -149,7 +149,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}]{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"🍂[{get_size(file.file_size)}]🌿{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -176,20 +176,20 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
+            [InlineKeyboardButton("💫 ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"📖𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f"{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{n_offset}")])
+            [InlineKeyboardButton(f"📖{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖", callback_data="pages"),
+             InlineKeyboardButton("ɴᴇxᴛ💫", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("💫ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton(f"📖𝗉𝖺𝗀𝖾{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}📖", callback_data="pages"),
+                InlineKeyboardButton("ɴᴇxᴛ💫", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -222,9 +222,9 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:                
             btn = [[                
-            InlineKeyboardButton('⌬ 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 ⌬', callback_data='funda')
+            InlineKeyboardButton('🔎 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 🔎', callback_data='funda')
             ],[   
-            InlineKeyboardButton('Request Here', url="https://t.me/tomman_requests")
+            InlineKeyboardButton('🗣️ ᴿᴱQᵁᴱˢᵀ ᴴᴱᴿᴱ 🗣️', url="https://t.me/tomman_requests")
             ]]        
             k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ Then Request👉</b>', reply_markup=InlineKeyboardMarkup(btn))    
             await asyncio.sleep(30)
@@ -466,24 +466,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                xd = await client.send_cached_media(
+                await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "checksubp" else False,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/UrvashiTheatersSub")]])
+                    protect_content=True if ident == "filep" else False 
                 )
-
-                if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-                    f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-                    inline_keyboard = [
-                         [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/UrvashiTheatersSub")]
-                        ]
-                    reply_markup = InlineKeyboardMarkup(inline_keyboard)
-                    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-                    await asyncio.sleep(180)                   
-                    await xd.delete()
-                    
                 await query.answer('★彡Hey Bruh..彡★\n\n✯ മൂവിയുടെ ഫയൽ ‍‍ഞാന്‍ pm ഇൽ ഇട്ടിട്ടുണ്ട് പോയി നോക്ക്..🏃\n\n✯ 𝖨 𝗁𝖺𝗏𝖾 𝗉𝗎𝗍 𝗍𝗁𝖾 𝖿𝗂𝗅𝖾 𝗈𝖿 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝖺𝗌 𝖺 𝗉𝗆. 𝖦𝗈 𝖠𝗇𝖽 𝖲𝖾𝖾', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -517,24 +505,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url='https://t.me/UrvashiTheatersSub')
          ]]
         await query.answer()
-        xd = await client.send_cached_media(
+        await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == "checksubp" else False,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/UrvashiTheatersSub")]])
+            protect_content=True if ident == 'checksubp' else False
         )
-
-        if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-            f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-            inline_keyboard = [
-                 [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/UrvashiTheatersSub")]
-                ]
-            reply_markup = InlineKeyboardMarkup(inline_keyboard)
-            await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-            await asyncio.sleep(180)                   
-            await xd.delete()
-        
     elif query.data == "predvd":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
         files, next_offset, total = await get_bad_files(
