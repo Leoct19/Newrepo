@@ -288,11 +288,10 @@ Elsa
 """
 
     IMDB_TEMPLATE_TXT = """
-    ☞{message.from_user.mention}
-    
+    ☞{message.from_user.mention}   
 <b><i>🔖𝙼𝙾𝚅𝙸𝙴 : {search}</b></i>
 <b><i>🌿𝚈𝙴𝙰𝚁 : {year}</b></i>
-<b><i>🧞‍♀️𝚁𝙰𝚃𝙸𝙽𝙶𝚂 : {rating}</b></i>
+<b><i>🧞‍♀️𝚁𝙰𝚃𝙸𝙽𝙶𝚂 : {rating}/10</b></i>
 
 <b><i>𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 : {message.chat.title}</b></i>
 """
