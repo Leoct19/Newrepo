@@ -230,13 +230,6 @@ async def start(client, message):
                 except:
                     return
             await msg.edit_caption(f_caption)
-            btn = [[
-                InlineKeyboardButton("☢️ Get File Again ☢️", callback_data=f'delfile#{file_id}')
-            ]]
-            k = await msg.reply("<b><u>❗️❗️❗️𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>5 Minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>\n\n വേഗം എവിടേക്കെങ്കിലും ഫോർവേഡ് ചെയ്തു സേവ് ആക്കിക്കോ അല്ലേൽ ഡിലീറ്റ് ആാവും👍",quote=True)
-            await asyncio.sleep(300)
-            await msg.delete()
-            await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
             return
         except:
             pass
@@ -271,14 +264,6 @@ async def start(client, message):
             ]
         )
     )
-    btn = [[
-        InlineKeyboardButton("☢️ Get File Again ☢️", callback_data=f'delfile#{file_id}')
-    ]]
-    k = await msg.reply("<b><u>❗️❗️❗️𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>5 Minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>\n\n വേഗം എവിടേക്കെങ്കിലും ഫോർവേഡ് ചെയ്തു സേവ് ആക്കിക്കോ അല്ലേൽ ഡിലീറ്റ് ആാവും👍",quote=True)
-    await asyncio.sleep(43200)
-    await msg.delete()
-    await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
-    return   
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
