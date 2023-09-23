@@ -167,10 +167,13 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        btn.insert(0,
-            [InlineKeyboardButton(f"🎩{search}🎩",callback_data="neosub")]
-        )                     
-
+        btn.insert(0, 
+        [
+            InlineKeyboardButton(f'ɪɴꜰᴏ', 'movieinfo'),
+            InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'movss'),
+            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
+        ]
+    )
 
     if 0 < offset <= 10:
         off_set = 0
@@ -228,10 +231,10 @@ async def advantage_spoll_choker(bot, query):
             btn = [[                
             InlineKeyboardButton('⌬ 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 ⌬', callback_data='funda')
             ],[   
-            InlineKeyboardButton('ᴍᴏᴠɪᴇ ɪɴꜰᴏ', url=f"https://google.com/search?q={search_query}+Release+date")
+            InlineKeyboardButton('Request Here', url="https://t.me/tomman_requests")
             ]]        
-            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ</b>', reply_markup=InlineKeyboardMarkup(btn))    
-            await asyncio.sleep(60)
+            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ Then Request👉</b>', reply_markup=InlineKeyboardMarkup(btn))    
+            await asyncio.sleep(30)
             await k.delete()
 
 
@@ -593,7 +596,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("Request", url="https://t.me/tomman_requests"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -603,17 +606,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("Request", url="https://t.me/tomman_requests"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
-       ]    
+       ]
        await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>நீங்கள் திரைப்படத்தைப் பெற விரும்பினால், கீழே குறிப்பிடப்பட்டுள்ள விஷயங்களைப் பின்பற்றவும்...👇</u><i>\n\n🔹சரியான எழுத்துப்பிழை கேட்கவும். (ஆங்கிலத்தில் மட்டும்)\n\n🔸திரைப்படங்களை ஆங்கிலத்தில் டைப் செய்து மட்டும் கேட்கவும்.\n\n🔹வெளியாத திரைப்படங்களைக் கேட்காதீர்கள்.\n\n🔸 [திரைப்படத்தின் பெயர், ஆண்டு, மொழி] இந்த வழியில் கேளுங்கள்.\n\n🔹திரைப்படங்களைக் கோரும் போது சின்னங்களைத் தவிர்க்கவும். [+:;'*!-&.. etc]\n\n🌎 உங்கள் திரைப்பட விவரங்களுக்கு கீழே உள்ள Google பட்டனைப் பயன்படுத்தவும்</b></i>", reply_markup=InlineKeyboardMarkup(btn))
      
     elif query.data == "tel":
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("Request", url="https://t.me/tomman_requests"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -623,7 +626,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("Request", url="https://t.me/tomman_requests"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -640,13 +643,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
        btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
        language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-       btn_google = InlineKeyboardButton("𝚂𝙴𝙰𝚁𝙲𝙷 𝙾𝙽 𝙶𝙾𝙾𝙶𝙻𝙴", url="https://www.google.com/")
+       btn_google = InlineKeyboardButton("Request Here", url="https://t.me/tomman_requests")
 
        google_row = [btn_google]
 
        keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
  
-       await query.message.edit_text(text=f"<b>Hey 👋 {query.from_user.mention} ⌛️Something is wrong❕\n\nI couldn't find anything related to your request 🫧\n\nYou can find the way to get the movie from the buttons below🍃\n\n||Click the below buttons for more Information 🏌️</b>||", reply_markup=keyboard)
+       await query.message.edit_text(text=f"<b>Hey 👋 {query.from_user.mention}/n/nClick the below buttons for more Information 🏌️</b>", reply_markup=keyboard)
         
     elif query.data == "minfo":
        await query.answer(
@@ -665,6 +668,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "tinfo":
         await query.answer("▣ ᴛɪᴘs ▣\n\n★ ᴛʏᴘᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ (ɢᴏᴏɢʟᴇ)\n\n★ ɪғ ʏᴏᴜ ɴᴏᴛ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇ ɪɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ᴛʜᴇ ɴᴇxᴛ sᴛᴇᴘ ɪs ᴄʟɪᴄᴋ ɴᴇxᴛ ʙᴜᴛᴛᴏɴ.\n\n★ ᴄᴏɴᴛɪɴᴜᴇ ᴛʜɪs ᴍᴇᴛʜᴏᴅ ᴛᴏ ɢᴇᴛᴛɪɴɢ ʏᴏᴜ ғɪʟᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄɪɴᴇᴍᴀʟᴀ. ᴄᴏᴍ", show_alert=True)
+
+    elif query.data == "movieinfo":
+        await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n© ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+
+    elif query.data == "movss":
+        await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ᴋɢꜰ ᴄʜᴀᴘᴛᴇʀ 2  2022\n\n🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)\n\n©  ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+
+    elif query.data == "moviis":  
+        await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ʟᴏᴋɪ S01 E01\n\n🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)\n\n© ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)   
 
     elif query.data == "neosub": 
         await query.answer(f"✯ താഴെയുള്ള ബട്ടണിൽ വേണ്ട ക്വാളിറ്റി യിൽ ക്ലിക്ക് ചെയ്താൽ കിട്ടും⚡\n\n✯ 𝖢𝗅𝗂𝖼𝗄 𝗈𝗇 𝗍𝗁𝖾 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 𝖻𝖾𝗅𝗈𝗐 𝖻𝗎𝗍𝗍𝗈𝗇 🌈 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖳𝗁𝖾 𝖡𝗈𝗍 🎯",show_alert=True)
@@ -1246,9 +1258,13 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn.insert(0,
-            [InlineKeyboardButton(f"🎩{search}🎩",callback_data="neosub")]
-        )        
+        btn.insert(0, 
+        [
+            InlineKeyboardButton(f'ɪɴꜰᴏ', 'movieinfo'),
+            InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'movss'),
+            InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
+        ]
+    )
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
@@ -1403,7 +1419,7 @@ async def advantage_spell_chok(client, msg):
     movielist = []
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")
-        btn_duction = InlineKeyboardButton(" ✰Request Here✰ ", url="https://t.me/UrvashiTheatersSub")
+        btn_duction = InlineKeyboardButton(" ✰Request Here✰ ", url="https://t.me/tomman_requests")
 
         intro_row = [btn_duction]
         btn_eng = InlineKeyboardButton("ᴇɴɢ", callback_data="eng")
@@ -1419,7 +1435,7 @@ async def advantage_spell_chok(client, msg):
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
-        k = await msg.reply_text(text=f"<b>Hey 👋 {msg.from_user.mention} ⌛️Something is wrong❕\n\nI couldn't find anything related to your request 🫧\n\nYou can find the way to get the movie from the buttons below🍃\n\n||Click the below buttons for more details</b>🧜||", reply_markup=keyboard)
+        k = await msg.reply_text(text=f"<b>Hey 👋 {msg.from_user.mention}\n\nClick the below buttons for more details</b>", reply_markup=keyboard)
         await asyncio.sleep(60)
         await k.delete()
         await msg.delete()
@@ -1438,7 +1454,7 @@ async def advantage_spell_chok(client, msg):
         ]
         for k, movie_name in enumerate(movielist)
     ]
-    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
+    btn.append([InlineKeyboardButton(text="🗂️Request Here🗂️", url='https://t.me/tomman_requests')])
     k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(30)
